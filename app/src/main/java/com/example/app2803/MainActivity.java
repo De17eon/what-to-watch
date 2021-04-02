@@ -78,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         db = helper.getWritableDatabase();
 
         setDefaulText();
+        // TODO: Хардкодинг в SQL запросе          
         tunes = db.rawQuery("SELECT * FROM filmlist", null);
         count = tunes.getCount();
         setFilmCounter(findThisFilm);
@@ -98,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
         list.add(setYear.getText());
         list.add(setDuration.getText());
         Object[] array = list.toArray();
-
+         // TODO: Хардкодинг в SQL запросе. Что за непонятные вопросы в values
         db.execSQL("INSERT INTO filmlist (title, director, genre, year, duration) values (?,?,?,?,?)", array);
         count = count + 1;
         setFilmCounter(findThisFilm);
